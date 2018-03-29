@@ -15,8 +15,7 @@ public class HeightOfABinaryTree {
 			root = insert(root, data);
 		}
 		scan.close();
-		int height = height(root);
-		System.out.println(height);
+		System.out.println(height(root));
 	}
 
 	static int height(Node root) {
