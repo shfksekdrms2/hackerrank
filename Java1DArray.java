@@ -2,46 +2,41 @@ package hackerrank.hackerrank;
 
 import java.util.Scanner;
 
-//Java 1D Array
+/*
+ * https://www.hackerrank.com/challenges/java-1d-array/problem
+ * Java 1D Array
+ */
 public class Java1DArray {
 	public static boolean canWin(int leap, int[] game) {
-		// Return true if you can win the game; otherwise, return false.
 		boolean win = false;
-		int position = -1;	//because first index is zero
-		int[] visit = new int[game.length];
-//		System.out.println("----------------------------");
-//		System.out.println("leap: "+leap);
+		int index = 0; 
+		boolean[] visit = new boolean[game.length];
+		visit[index] = true;
 		while (true) {
-			if(position+1 < game.length && game[position+1] == 0){
-				if(visit[position+1] >= 1){
-					break;
-				}
-//				System.out.println("position+1: "+ (position+1));
-				position++;
-				visit[position]++;
+			if ((index + leap > game.length - 1) || (index + 1 > game.length)) {
+				win = true;
+				break;
+			}
+			if (game[index + leap] == 0 && !isAlreadyCheckIndex(index + leap, visit)) {
+				index += leap;
+			} else if (game[index + 1] == 0 && !isAlreadyCheckIndex(index + 1, visit)) {
+				index++;
+			} else if (index - 1 >= 0 && game[index - 1] == 0 && !isAlreadyCheckIndex(index - 1, visit)) {
+				index--;
 			}else{
-//				System.out.println("position+leap: "+ (position+leap));
-//				System.out.println("position: "+position);
-//				System.out.println("game.length-1: "+(game.length-1));
-				if(position+leap >= game.length-1){
-					win = true;
-					break;
-				}
-				if(game[position+leap] == 0){
-					position += leap;
-					visit[position]++;
-				}else if( position-1 >= 0 && game[position-1] == 0){
-					position--;
-					visit[position]++;
-				}else{
-					win = false;
-					break;
-				}
+				break;
 			}
 		}
-//		System.out.println("----------------------------");
 
 		return win;
+	}
+
+	private static boolean isAlreadyCheckIndex(int index, boolean[] visit) {
+		if (visit[index] == true) {
+			return true;
+		}
+		visit[index] = true;
+		return false;
 	}
 
 	public static void main(String[] args) {
