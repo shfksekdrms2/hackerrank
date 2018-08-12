@@ -45,59 +45,42 @@ public class Solution {
 		}
 	}
 
-	public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
+	public static void printSinglyLinkedList(SinglyLinkedListNode node) {
 		while (node != null) {
-			bufferedWriter.write(String.valueOf(node.data));
-
+			System.out.println(node.data);
 			node = node.next;
-
-			if (node != null) {
-				bufferedWriter.write(sep);
-			}
 		}
 	}
 
 	static SinglyLinkedListNode insertNodeAtPosition(SinglyLinkedListNode head, int data, int position) {
 		SinglyLinkedListNode node = new SinglyLinkedListNode(data);
-//		SinglyLinkedListNode index
-		for(int i=0; i<position; i++){
-			
+		node.data = data;
+		SinglyLinkedListNode index = head;
+		for (int i = 0; i < position - 1; i++) {
+			head = head.next;
 		}
-		
-		return head;
+		node.next = head.next;
+		head.next = node;
+		return index;
 	}
 
-	private static final Scanner scanner = new Scanner(System.in);
-
 	public static void main(String[] args) throws IOException {
-		BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
-
+		Scanner sc = new Scanner(System.in);
 		SinglyLinkedList llist = new SinglyLinkedList();
 
-		int llistCount = scanner.nextInt();
-		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+		int llistCount = sc.nextInt();
 
 		for (int i = 0; i < llistCount; i++) {
-			int llistItem = scanner.nextInt();
-			scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
+			int llistItem = sc.nextInt();
 			llist.insertNode(llistItem);
 		}
 
-		int data = scanner.nextInt();
-		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-		int position = scanner.nextInt();
-		scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+		int data = sc.nextInt();
+		int position = sc.nextInt();
 
 		SinglyLinkedListNode llist_head = insertNodeAtPosition(llist.head, data, position);
 
-		printSinglyLinkedList(llist_head, " ", bufferedWriter);
-		bufferedWriter.newLine();
-
-		bufferedWriter.close();
-
-		scanner.close();
+		printSinglyLinkedList(llist_head);
 	}
 
 }
