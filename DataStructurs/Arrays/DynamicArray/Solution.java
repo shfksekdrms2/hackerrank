@@ -25,27 +25,35 @@ public class Solution {
 		for (int i = 0; i < n; i++) {
 			subList.add(new ArrayList<Integer>());
 		}
-		int lastAnswer = 0, beforeLastAnswer = 0;;
+		int lastAnswer = 0, beforeLastAnswer = 0;
 		for (List<Integer> subquerie : queries) {
 			if (subquerie.get(0) == 1) {
-				subList.get((subquerie.get(1) + lastAnswer) % n).add(subquerie.get(2));
+				subList.get((subquerie.get(1) ^ lastAnswer) % n).add(subquerie.get(2));
 			} else {
-				beforeLastAnswer = (subquerie.get(1) + lastAnswer) % n;
-//				System.out.println("subList.get(lastAnswer).size(): "+ subList.get(lastAnswer).size());
-				if(subList.get(beforeLastAnswer).size() != 0){
-					lastAnswer = beforeLastAnswer;
-					list.add(subList.get(lastAnswer).get(subList.get(lastAnswer).size() - 1));
-					System.out.println("lastAnswer: " + lastAnswer);
+				beforeLastAnswer = (subquerie.get(1) ^ lastAnswer) % n;
+//				System.out.println("beforeLastAnswer: "+ beforeLastAnswer);
+				// System.out.println("subList.get(lastAnswer).size(): "+
+				// subList.get(lastAnswer).size());
+				if (subList.get(beforeLastAnswer).size() != 0) {
+//					lastAnswer = beforeLastAnswer;
+					
+					
+//					System.out.println("subList.get(beforeLastAnswer).size(): "+ subList.get(beforeLastAnswer).size());
+					
+					lastAnswer = subList.get(beforeLastAnswer).get(subList.get(beforeLastAnswer).size() - 1); 
+					list.add(lastAnswer);
+					
+//					System.out.println("lastAnswer: " + lastAnswer);
 				}
 			}
 
-			for (int i = 0; i < subList.size(); i++) {
-				for (int j = 0; j < subList.get(i).size(); j++) {
-					System.out.print(subList.get(i).get(j) + " ");
-				}
-				System.out.println();
-			}
-			System.out.println("----------------");
+//			for (int i = 0; i < subList.size(); i++) {
+//				for (int j = 0; j < subList.get(i).size(); j++) {
+//					System.out.print(subList.get(i).get(j) + " ");
+//				}
+//				System.out.println();
+//			}
+//			System.out.println("----------------");
 		}
 
 		return list;
