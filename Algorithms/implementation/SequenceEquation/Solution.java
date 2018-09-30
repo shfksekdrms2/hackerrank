@@ -15,15 +15,11 @@ import java.util.regex.*;
 public class Solution {
 	static int[] permutationEquation(int[] p) {
 		int[] result = new int[p.length];
-		// int[] tmp = new int[p.length];
-		// for (int i = 0; i < tmp.length; i++) {
-		// tmp[p[i] - 1] = i + 1;
-		// }
 
 		for (int i = 0; i < result.length; i++) {
 			for (int j = 0; j < result.length; j++) {
-				if (p[p[j] - 1] == p[i]) {
-					result[i] = p[p[j] - 1];
+				if (p[p[i] - 1] == p[j]) {
+					result[p[p[i] - 1] - 1] = i + 1;
 					break;
 				}
 			}
