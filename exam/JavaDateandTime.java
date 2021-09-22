@@ -1,4 +1,4 @@
-package hackerrank.hackerrank;
+package exam;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

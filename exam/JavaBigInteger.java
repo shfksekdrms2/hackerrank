@@ -1,4 +1,4 @@
-package hackerrank.hackerrank;
+package exam;
 
 import java.math.BigInteger;
 import java.util.Scanner;

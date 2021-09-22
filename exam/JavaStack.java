@@ -1,4 +1,4 @@
-package hackerrank.hackerrank;
+package exam;
 
 import java.util.Scanner;
 import java.util.Stack;

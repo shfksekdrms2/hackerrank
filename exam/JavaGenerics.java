@@ -1,6 +1,5 @@
-package hackerrank.hackerrank;
+package exam;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class JavaGenerics {

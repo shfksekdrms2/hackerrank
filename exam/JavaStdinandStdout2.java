@@ -1,12 +1,12 @@
-package hackerrank.hackerrank;
+package exam;
 import java.util.Scanner;
 
 //Java Stdin and Stdout II
 public class JavaStdinandStdout2 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int i = scan.nextInt();scan.nextLine();			//°іЗа №®АЪ Б¦°Е
-        double d = scan.nextDouble();scan.nextLine();	//°іЗа №®АЪ Б¦°Е
+        int i = scan.nextInt();scan.nextLine();			//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+        double d = scan.nextDouble();scan.nextLine();	//пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
         String s = scan.nextLine();
         // Write your code here.
 

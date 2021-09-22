@@ -1,4 +1,4 @@
-package hackerrank.hackerrank;
+package exam;
 
 import java.io.*;
 import java.util.*;

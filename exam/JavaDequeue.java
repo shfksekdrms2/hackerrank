@@ -1,4 +1,4 @@
-package hackerrank.hackerrank;
+package exam;
 
 import java.util.Deque;
 import java.util.HashSet;
