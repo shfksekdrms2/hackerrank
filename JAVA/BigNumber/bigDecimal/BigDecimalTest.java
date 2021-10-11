@@ -24,6 +24,7 @@ public class BigDecimalTest {
             BigDecimal first = new BigDecimal(o1);
             BigDecimal second = new BigDecimal(o2);
             return second.compareTo(first);
+
         });
 
 
