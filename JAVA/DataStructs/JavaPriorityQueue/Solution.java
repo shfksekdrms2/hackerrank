@@ -1,4 +1,4 @@
-package hackerrank.hackerrank.JAVA.DataStructs.JavaPriorityQueue;
+package JAVA.DataStructs.JavaPriorityQueue;
 
 import java.util.ArrayList;
 import java.util.Collections;
